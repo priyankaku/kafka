@@ -40,8 +40,8 @@ public class JsonConverterConfig extends ConverterConfig {
     private static final String SCHEMAS_CACHE_SIZE_DOC = "The maximum number of schemas that can be cached in this converter instance.";
     private static final String SCHEMAS_CACHE_SIZE_DISPLAY = "Schema Cache Size";
 
-    public static final String SCHEMA_FILE_CONTENT_CONFIG = "schema.content";
-    public static final String SCHEMA_FILE_CONTENT_DEFAULT = null;
+    public static final String SCHEMA_CONTENT_CONFIG = "schema.content";
+    public static final String SCHEMA_CONTENT_DEFAULT = null;
     private static final String SCHEMA_CONTENT_DOC = "When set, this is used as the schema for all messages. Otherwise, the schema will should be in the contents of each message.";
     private static final String SCHEMA_CONTENT_DISPLAY = "Schema Content";
 
@@ -68,7 +68,7 @@ public class JsonConverterConfig extends ConverterConfig {
                       orderInGroup++, Width.MEDIUM, SCHEMAS_ENABLE_DISPLAY);
         CONFIG.define(SCHEMAS_CACHE_SIZE_CONFIG, Type.INT, SCHEMAS_CACHE_SIZE_DEFAULT, Importance.HIGH, SCHEMAS_CACHE_SIZE_DOC, group,
                       orderInGroup++, Width.MEDIUM, SCHEMAS_CACHE_SIZE_DISPLAY);
-        CONFIG.define(SCHEMA_FILE_CONTENT_CONFIG, Type.STRING, SCHEMA_FILE_CONTENT_DEFAULT, Importance.HIGH, SCHEMA_CONTENT_DOC, group, 
+        CONFIG.define(SCHEMA_CONTENT_CONFIG, Type.STRING, SCHEMA_CONTENT_DEFAULT, Importance.HIGH, SCHEMA_CONTENT_DOC, group, 
                       orderInGroup++, Width.MEDIUM, SCHEMA_CONTENT_DISPLAY);
 
         group = "Serialization";
@@ -95,7 +95,7 @@ public class JsonConverterConfig extends ConverterConfig {
     private final int schemaCacheSize;
     private final DecimalFormat decimalFormat;
     private final boolean replaceNullWithDefault;
-    private final byte[] schemaFileContent;
+    private final byte[] schemaContent;
 
 
     @SuppressWarnings("this-escape")
@@ -105,8 +105,8 @@ public class JsonConverterConfig extends ConverterConfig {
         this.schemaCacheSize = getInt(SCHEMAS_CACHE_SIZE_CONFIG);
         this.decimalFormat = DecimalFormat.valueOf(getString(DECIMAL_FORMAT_CONFIG).toUpperCase(Locale.ROOT));
         this.replaceNullWithDefault = getBoolean(REPLACE_NULL_WITH_DEFAULT_CONFIG);
-        String schemaFileContentStr = getString(SCHEMA_FILE_CONTENT_CONFIG);
-        this.schemaFileContent = schemaFileContentStr == null ? null : schemaFileContentStr.getBytes();
+        String schemaContentStr = getString(SCHEMA_CONTENT_CONFIG);
+        this.schemaContent = schemaContentStr == null ? null : schemaContentStr.getBytes();
     }
 
     /**
@@ -145,11 +145,15 @@ public class JsonConverterConfig extends ConverterConfig {
     }
 
     /**
+     * If a default schema is provided in the converter config, this will be
+     * used for all messages.
      * 
+     * This is only relevant if schemas are enabled.
+     *
      * @return Schema Contents, will return null if no value is provided
      */
-    public byte[] schemaFileContent() {
-        return schemaFileContent;
+    public byte[] schemaContent() {
+        return schemaContent;
     }
 
 }
