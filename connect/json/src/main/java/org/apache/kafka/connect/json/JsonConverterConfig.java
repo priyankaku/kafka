@@ -145,7 +145,11 @@ public class JsonConverterConfig extends ConverterConfig {
     }
 
     /**
+     * If a default schema is provided in the converter config, this will be
+     * used for all messages.
      * 
+     * This is only relevant if schemas are enabled.
+     *
      * @return Schema Contents, will return null if no value is provided
      */
     public byte[] schemaContent() {
