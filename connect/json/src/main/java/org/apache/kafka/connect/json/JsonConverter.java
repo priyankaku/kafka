@@ -69,6 +69,8 @@ public class JsonConverter implements Converter, HeaderConverter, Versioned {
 
     private static final Map<Schema.Type, JsonToConnectTypeConverter> TO_CONNECT_CONVERTERS = new EnumMap<>(Schema.Type.class);
 
+    // if a schema is provided in config, this schema will 
+    // be used for all messages
     private Schema schema = null;
 
     static {
