@@ -703,7 +703,7 @@ public class JsonConverter implements Converter, HeaderConverter, Versioned {
                 }
             }
 
-            throw new DataException("Couldn't  " + value + " to JSON.");
+            throw new DataException("Couldn't convert " + value + " to JSON.");
         } catch (ClassCastException e) {
             String schemaTypeStr = (schema != null) ? schema.type().toString() : "unknown schema";
             throw new DataException("Invalid type for " + schemaTypeStr + ": " + value.getClass());
