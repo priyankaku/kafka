@@ -106,7 +106,7 @@ public class JsonConverterConfig extends ConverterConfig {
         this.decimalFormat = DecimalFormat.valueOf(getString(DECIMAL_FORMAT_CONFIG).toUpperCase(Locale.ROOT));
         this.replaceNullWithDefault = getBoolean(REPLACE_NULL_WITH_DEFAULT_CONFIG);
         String schemaContentStr = getString(SCHEMA_CONTENT_CONFIG);
-        this.schemaFileContent = schemaFileContentStr == null ? null : schemaFileContentStr.getBytes();
+        this.schemaContent = schemaContentStr == null ? null : schemaContentStr.getBytes();
     }
 
     /**
