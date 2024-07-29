@@ -41,7 +41,7 @@ public class JsonConverterConfig extends ConverterConfig {
     private static final String SCHEMAS_CACHE_SIZE_DISPLAY = "Schema Cache Size";
 
     public static final String SCHEMA_CONTENT_CONFIG = "schema.content";
-    public static final String SCHEMA_FILE_CONTENT_DEFAULT = null;
+    public static final String SCHEMA_CONTENT_DEFAULT = null;
     private static final String SCHEMA_CONTENT_DOC = "When set, this is used as the schema for all messages. Otherwise, the schema will should be in the contents of each message.";
     private static final String SCHEMA_CONTENT_DISPLAY = "Schema Content";
 
