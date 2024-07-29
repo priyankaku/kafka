@@ -95,7 +95,7 @@ public class JsonConverterConfig extends ConverterConfig {
     private final int schemaCacheSize;
     private final DecimalFormat decimalFormat;
     private final boolean replaceNullWithDefault;
-    private final byte[] schemaFileContent;
+    private final byte[] schemaContent;
 
 
     @SuppressWarnings("this-escape")
