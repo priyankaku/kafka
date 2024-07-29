@@ -148,7 +148,7 @@ public class JsonConverterConfig extends ConverterConfig {
      * 
      * @return Schema Contents, will return null if no value is provided
      */
-    public byte[] schemaFileContent() {
+    public byte[] schemaContent() {
         return schemaFileContent;
     }
 
