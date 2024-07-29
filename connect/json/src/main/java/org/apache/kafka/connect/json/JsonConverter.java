@@ -299,7 +299,7 @@ public class JsonConverter implements Converter, HeaderConverter, Versioned {
         toConnectSchemaCache = new SynchronizedCache<>(new LRUCache<>(config.schemaCacheSize()));
                 
         try {
-            byte[] schemaContent = config.schemaFileContent();
+            final byte[] schemaContent = config.schemaFileContent();
             if (schemaContent != null && schemaContent.length > 0) {
                 JsonNode schemaNode = deserializer.deserialize("", schemaContent);
                 this.schema = asConnectSchema(schemaNode);
