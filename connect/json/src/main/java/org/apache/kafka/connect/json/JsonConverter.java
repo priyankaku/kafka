@@ -305,7 +305,7 @@ public class JsonConverter implements Converter, HeaderConverter, Versioned {
                 this.schema = asConnectSchema(schemaNode);
             }
         } catch (SerializationException e) {
-            throw new DataException("Provided schema is invalid , please recheck the schema you have provided", e);
+            throw new DataException("Failed to parse schema in converter config due to serialization error: ", e);
         }
             
     }
