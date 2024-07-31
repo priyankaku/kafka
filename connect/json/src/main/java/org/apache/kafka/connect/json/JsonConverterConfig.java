@@ -58,8 +58,6 @@ public class JsonConverterConfig extends ConverterConfig {
 
     private static final ConfigDef CONFIG;
 
-
-
     static {
         String group = "Schemas";
         int orderInGroup = 0;
@@ -83,7 +81,7 @@ public class JsonConverterConfig extends ConverterConfig {
         CONFIG.define(
                 REPLACE_NULL_WITH_DEFAULT_CONFIG, Type.BOOLEAN, REPLACE_NULL_WITH_DEFAULT_DEFAULT,
                 Importance.LOW, REPLACE_NULL_WITH_DEFAULT_DOC, group, orderInGroup++,
-                Width.MEDIUM, REPLACE_NULL_WITH_DEFAULT_DISPLAY);        
+                Width.MEDIUM, REPLACE_NULL_WITH_DEFAULT_DISPLAY);
     }
 
     public static ConfigDef configDef() {
@@ -96,7 +94,6 @@ public class JsonConverterConfig extends ConverterConfig {
     private final DecimalFormat decimalFormat;
     private final boolean replaceNullWithDefault;
     private final byte[] schemaContent;
-
 
     @SuppressWarnings("this-escape")
     public JsonConverterConfig(Map<String, ?> props) {
